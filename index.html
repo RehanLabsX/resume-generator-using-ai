@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>ResumeAI – Smart Resume Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body class="home-page">
+
+  <nav class="navbar">
+    <div class="logo">Resume<span>AI</span></div>
+    <a href="form.html" class="btn-nav">Get Started →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        AI-Powered · Instant · Free
+      </div>
+      <h1>Your Dream Resume,<br/><span class="accent">Built in Minutes.</span></h1>
+      <p class="hero-sub">Stop struggling with formatting and wording. Let AI craft a professional, ATS-friendly resume tailored just for you.</p>
+      <div class="hero-cta">
+        <a href="form.html" class="btn-primary">✦ Create My Resume</a>
+        <a href="#how" class="btn-ghost">How It Works ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">2 min</div>
+          <div class="stat-label">Build time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">ATS</div>
+          <div class="stat-label">Optimised</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Templates</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop visual only -->
+    <div class="hero-visual">
+      <div class="card-float card1"><span class="tag green">✓ ATS Friendly</span></div>
+      <div class="card-float card2"><span class="tag blue">✦ AI Enhanced</span></div>
+      <div class="card-float card3"><span class="tag orange">⬇ PDF Ready</span></div>
+      <div class="resume-mockup">
+        <div class="mock-header"></div>
+        <div class="mock-line w80"></div>
+        <div class="mock-line w60"></div>
+        <div class="mock-divider"></div>
+        <div class="mock-line w90"></div>
+        <div class="mock-line w70"></div>
+        <div class="mock-line w85"></div>
+        <div class="mock-divider"></div>
+        <div class="mock-line w50"></div>
+        <div class="mock-line w75"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how">
+    <div class="section-label">How It Works</div>
+    <h2>Three steps to your best resume</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Fill Your Details</h3>
+        <p>Enter your name, education, skills, and experience in our simple 5-step form.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>AI Enhances It</h3>
+        <p>Claude AI rewrites and polishes your content to sound professional and impressive.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Download PDF</h3>
+        <p>Pick a template and download your ready-to-send resume instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="section-label">Features</div>
+    <h2>Everything you need</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon">🤖</div>
+        <h3>AI Writing</h3>
+        <p>Turns rough notes into professional bullet points with action verbs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📄</div>
+        <h3>2 Templates</h3>
+        <p>Classic and Modern designs that stand out to recruiters.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">✅</div>
+        <h3>ATS Ready</h3>
+        <p>Formatted to pass Applicant Tracking Systems.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">⚡</div>
+        <h3>Instant PDF</h3>
+        <p>Download in seconds, perfectly formatted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p>Ready to get hired?</p>
+    <h2>Build your resume <span class="accent">right now.</span></h2>
+    <a href="form.html" class="btn-primary">✦ Start for Free →</a>
+  </section>
+
+  <footer class="footer">
+    <p>ResumeAI – Mini Project · Built with ❤️ for College · Powered by Claude AI</p>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.step, .feature-card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = `opacity 0.5s ${i * 0.07}s ease, transform 0.5s ${i * 0.07}s ease`;
+      io.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>ResumeAI – Your Resume</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="preview-page">
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">Resume<span>AI</span></a>
+    <div class="preview-actions">
+      <a href="form.html" class="btn-ghost">← Edit</a>
+      <button class="btn-primary" onclick="downloadPDF()">⬇ PDF</button>
+    </div>
+  </nav>
+
+  <div class="preview-container">
+
+    <!-- Sidebar (desktop) / toolbar (mobile) -->
+    <div class="preview-sidebar">
+      <h4>Template</h4>
+      <div class="tpl-switch">
+        <button class="tpl-btn active" onclick="switchTemplate('template1',this)">Classic</button>
+        <button class="tpl-btn"        onclick="switchTemplate('template2',this)">Modern</button>
+      </div>
+
+      <hr/>
+
+      <h4>Tips</h4>
+      <ul class="tips-list">
+        <li>Keep it to 1 page</li>
+        <li>Use action verbs</li>
+        <li>Quantify achievements</li>
+        <li>Match job keywords</li>
+      </ul>
+
+      <hr/>
+
+      <!-- Desktop only download -->
+      <button class="btn-primary full-w sidebar-dl" onclick="downloadPDF()">⬇ Download PDF</button>
+      <a href="form.html" class="btn-ghost full-w mt8 sidebar-dl" style="display:none">← Edit</a>
+    </div>
+
+    <!-- Resume -->
+    <div class="resume-wrapper">
+      <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>AI is enhancing your resume…</p>
+      </div>
+      <div id="resumeOutput"></div>
+    </div>
+
+  </div>
+
+  <!-- Mobile fixed bottom bar -->
+  <div class="mobile-dl-bar">
+    <a href="form.html" class="btn-ghost">← Edit</a>
+    <button class="btn-primary" onclick="downloadPDF()">⬇ Download PDF</button>
+  </div>
+
+  <script src="preview.js"></script>
+</body>
+</html>

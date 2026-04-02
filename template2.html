@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; min-height: 100vh; font-size: 12px; }
+    .left-col {
+      width: 220px; background: #1a1a2e; color: #f0eff4;
+      padding: 32px 22px; flex-shrink: 0;
+    }
+    .right-col { flex: 1; padding: 32px 36px; background: #fff; color: #1a1a2e; }
+    .r-name { font-size: 20px; font-weight: 800; color: #f0c040; margin-bottom: 4px; }
+    .r-role { font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .left-title { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: #f0c040; margin: 18px 0 6px; border-bottom: 1px solid #2e2e48; padding-bottom: 3px; }
+    .contact-item { font-size: 10px; color: #ccc; margin-bottom: 4px; word-break: break-all; }
+    .skill-tag { display: inline-block; background: #2e2e48; color: #f0eff4; padding: 3px 8px; border-radius: 3px; font-size: 10px; margin: 2px 2px; }
+    .section-title { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #4f8ef7; margin: 18px 0 6px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
+    .entry { margin-bottom: 12px; }
+    .entry-header { display: flex; justify-content: space-between; font-weight: 700; font-size: 12px; }
+    .entry-sub { color: #777; font-size: 10px; margin-bottom: 3px; }
+    ul { margin: 4px 0 0 16px; }
+    li { margin-bottom: 2px; font-size: 11px; color: #333; }
+    .summary { font-size: 11.5px; color: #444; line-height: 1.6; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <div class="left-col">
+    <div class="r-name">{{name}}</div>
+    <div class="r-role">{{role}}</div>
+    <div class="left-title">Contact</div>
+    {{contact_left}}
+    <div class="left-title">Skills</div>
+    {{skills_left}}
+  </div>
+  <div class="right-col">
+    <div class="section-title">About Me</div>
+    <p class="summary">{{summary}}</p>
+    {{education_section}}
+    {{experience_section}}
+    {{projects_section}}
+  </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>ResumeAI – Fill Your Details</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body class="form-page">
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">Resume<span>AI</span></a>
+    <div class="progress-bar-wrap">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </nav>
+
+  <div class="form-container">
+
+    <!-- Step tabs -->
+    <div class="form-sidebar">
+      <ul class="sidebar-steps" id="stepTabs">
+        <li class="active" data-step="1">① Personal</li>
+        <li data-step="2">② Education</li>
+        <li data-step="3">③ Skills</li>
+        <li data-step="4">④ Experience</li>
+        <li data-step="5">⑤ Projects</li>
+      </ul>
+    </div>
+
+    <div class="form-main">
+
+      <!-- STEP 1 -->
+      <div class="form-step active" id="step1">
+        <h2>Personal Info</h2>
+        <p class="step-desc">Let's start with the basics.</p>
+        <div class="field-group">
+          <label>Full Name *</label>
+          <input type="text" id="fullName" placeholder="e.g. Rahul Sharma" autocomplete="name"/>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>Email *</label>
+            <input type="email" id="email" placeholder="rahul@gmail.com" autocomplete="email"/>
+          </div>
+          <div class="field-group">
+            <label>Phone *</label>
+            <input type="tel" id="phone" placeholder="+91 9876543210" autocomplete="tel"/>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>City</label>
+            <input type="text" id="city" placeholder="Mumbai" autocomplete="address-level2"/>
+          </div>
+          <div class="field-group">
+            <label>LinkedIn</label>
+            <input type="text" id="linkedin" placeholder="linkedin.com/in/rahul"/>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>GitHub</label>
+          <input type="text" id="github" placeholder="github.com/rahul"/>
+        </div>
+        <div class="field-group">
+          <label>Target Job Role *</label>
+          <input type="text" id="jobRole" placeholder="e.g. Software Developer"/>
+          <small>AI will tailor your resume for this role.</small>
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="nextStep(2)">Next: Education →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step" id="step2">
+        <h2>Education</h2>
+        <p class="step-desc">Add your qualifications.</p>
+        <div id="educationList">
+          <div class="edu-entry entry-block">
+            <div class="field-row">
+              <div class="field-group">
+                <label>Degree / Course *</label>
+                <input type="text" class="edu-degree" placeholder="B.E. Computer Science"/>
+              </div>
+              <div class="field-group">
+                <label>Institution *</label>
+                <input type="text" class="edu-inst" placeholder="ABC College"/>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label>Year of Passing</label>
+                <input type="text" class="edu-year" placeholder="2025"/>
+              </div>
+              <div class="field-group">
+                <label>CGPA / %</label>
+                <input type="text" class="edu-score" placeholder="8.5 CGPA"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn-add" onclick="addEducation()">+ Add Another Education</button>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="nextStep(1)">← Back</button>
+          <button class="btn-primary" onclick="nextStep(3)">Next: Skills →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step" id="step3">
+        <h2>Skills</h2>
+        <p class="step-desc">AI will enhance and format these for you.</p>
+        <div class="field-group">
+          <label>Technical Skills *</label>
+          <textarea id="techSkills" rows="3" placeholder="e.g. Python, Java, HTML, CSS, MySQL, React"></textarea>
+          <small>Separate with commas.</small>
+        </div>
+        <div class="field-group">
+          <label>Soft Skills</label>
+          <textarea id="softSkills" rows="2" placeholder="e.g. teamwork, communication, leadership"></textarea>
+        </div>
+        <div class="field-group">
+          <label>Certifications</label>
+          <textarea id="certs" rows="2" placeholder="e.g. AWS Cloud Practitioner, Google Python Certificate"></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="nextStep(2)">← Back</button>
+          <button class="btn-primary" onclick="nextStep(4)">Next: Experience →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="form-step" id="step4">
+        <h2>Experience</h2>
+        <p class="step-desc">Add internships or jobs. Leave blank if fresher.</p>
+        <div id="expList">
+          <div class="exp-entry entry-block">
+            <div class="field-row">
+              <div class="field-group">
+                <label>Job Title</label>
+                <input type="text" class="exp-title" placeholder="Software Intern"/>
+              </div>
+              <div class="field-group">
+                <label>Company</label>
+                <input type="text" class="exp-company" placeholder="XYZ Technologies"/>
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Duration</label>
+              <input type="text" class="exp-duration" placeholder="June 2024 – Aug 2024"/>
+            </div>
+            <div class="field-group">
+              <label>What did you do?</label>
+              <textarea class="exp-desc" rows="2" placeholder="e.g. built REST APIs, fixed bugs in frontend"></textarea>
+              <small>AI will convert this into professional bullet points.</small>
+            </div>
+          </div>
+        </div>
+        <button class="btn-add" onclick="addExperience()">+ Add Another Experience</button>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="nextStep(3)">← Back</button>
+          <button class="btn-primary" onclick="nextStep(5)">Next: Projects →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="form-step" id="step5">
+        <h2>Projects</h2>
+        <p class="step-desc">Showcase your best work.</p>
+        <div id="projList">
+          <div class="proj-entry entry-block">
+            <div class="field-row">
+              <div class="field-group">
+                <label>Project Title *</label>
+                <input type="text" class="proj-title" placeholder="Resume Generator Using AI"/>
+              </div>
+              <div class="field-group">
+                <label>Tech Used</label>
+                <input type="text" class="proj-tech" placeholder="Python, Flask, HTML, CSS"/>
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Description</label>
+              <textarea class="proj-desc" rows="2" placeholder="e.g. web app that generates resumes using AI API"></textarea>
+              <small>AI will write a strong description from this.</small>
+            </div>
+          </div>
+        </div>
+        <button class="btn-add" onclick="addProject()">+ Add Another Project</button>
+
+        <div class="template-select">
+          <h3>Choose Template</h3>
+          <div class="templates">
+            <div class="template-opt selected" data-tpl="template1" onclick="selectTemplate('template1',this)">
+              <div class="tpl-preview tpl1">
+                <div class="tpl-bar"></div>
+                <div class="tpl-lines"><div></div><div></div><div></div></div>
+              </div>
+              <span>Classic</span>
+            </div>
+            <div class="template-opt" data-tpl="template2" onclick="selectTemplate('template2',this)">
+              <div class="tpl-preview tpl2">
+                <div class="tpl-sidebar"></div>
+                <div class="tpl-lines"><div></div><div></div><div></div></div>
+              </div>
+              <span>Modern</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="nextStep(4)">← Back</button>
+          <button class="btn-primary" id="generateBtn" onclick="generateResume()">
+            <span id="genBtnText">✦ Generate Resume</span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /form-main -->
+  </div><!-- /form-container -->
+
+  <script src="form.js"></script>
+  <script src="ai-helper.js"></script>
+</body>
+</html>
